@@ -67,7 +67,7 @@ jobs:
             c3repo:
               - "${{ inputs.c3repo }}/**"
   provision:
-    name: Provision to ${{ inputs.tag }}
+    name: Provision to ${{ inputs.tag }}-{{ $inputs.tenant }}
     needs: c3changes
     runs-on: ubuntu-latest
     steps:
