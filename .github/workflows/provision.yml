@@ -58,7 +58,7 @@ jobs:
       - name: Checkout this repo
         # For pull requests it's not necessary to checkout the code
         if: ${{ github.event_name != 'pull_request' }}
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -74,11 +74,11 @@ jobs:
           
       - name: Checkout this repo
         if: ${{ needs.c3changes.outputs.c3repo == 'true' }}
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         
       - name: Check out C3 CLI
         if: ${{ needs.c3changes.outputs.c3repo == 'true' }}
-        uses: actions/checkout@v2  
+        uses: actions/checkout@v3  
         with:
           repository: c3aidti/C3-CLI
           token: ${{ secrets.token }}
@@ -91,7 +91,7 @@ jobs:
         
       - name: Checkout DTI Provisioner repo
         if: ${{ needs.c3changes.outputs.c3repo == 'true' }}
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: c3aidti/dti-provisioner
           ref: ${{ inputs.version }}
